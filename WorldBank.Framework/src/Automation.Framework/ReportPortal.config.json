@@ -1,0 +1,15 @@
+{
+  "Server": {
+    "Url": "http://localhost:8085/api/v1", 
+    "Project": "superadmin_personal",
+    "Authentication": {
+      "Uuid": "" 
+    }
+  },
+  "Launch": {
+    "Name": "WorldBank E2E Quality Gate",
+    "Description": "Playwright Stepper Functional Suite",
+    "IsDebugMode": false,
+    "Tags": [ "Playwright", "Net8", "Regression" ]
+  }
+}

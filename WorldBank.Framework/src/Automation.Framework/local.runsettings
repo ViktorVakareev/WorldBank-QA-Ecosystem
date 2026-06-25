@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <!-- Controls parallel worker count locally -->
+    <MaxCpuCount>1</MaxCpuCount>
+  </RunConfiguration>
+  <TestRunParameters>
+    <Parameter name="BaseUrl" value="https://viktorvakareev.github.io/Playwright-DotNet-Enterprise-Architecture/WorldBankMockApp/dev/" />
+    <Parameter name="RunAiTriage" value="true" />
+  </TestRunParameters>
+</RunSettings>
