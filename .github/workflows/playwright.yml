@@ -26,7 +26,7 @@ jobs:
         # 🛡️ ARCHITECTURAL OVERRIDE: Forces the runner to use the 64-bit SDK regardless of host PATH
         run: |
           $env:PATH = "C:\Program Files\dotnet;" + $env:PATH
-          dotnet build src/Automation.Framework/ --configuration Release
+          dotnet build dotnet test WorldBank.Framework/src/Automation.Framework/Automation.Framework.csproj --configuration Release
 
       - name: 🌐 Install Playwright Browsers & OS Dependencies
         run: pwsh src/Automation.Framework/bin/Release/net9.0/playwright.ps1 install --with-deps
@@ -45,7 +45,7 @@ jobs:
           ReportPortal_TraceLevel: Verbose
           # 🎯 THE FIX: Maps perfectly to _config["AiTriage:Enabled"]
           AiTriage__Enabled: true 
-        run: dotnet test src/Automation.Framework/ --configuration Release --logger:"trx;LogFileName=TestResults.trx" --results-directory ./TestResults -- NUnit.NumberOfTestWorkers=1
+        run: dotnet test WorldBank.Framework/src/Automation.Framework/Automation.Framework.csproj --configuration Release --logger:"trx;LogFileName=TestResults.trx" --results-directory ./TestResults -- NUnit.NumberOfTestWorkers=1
         
       - name: 📤 Archive Raw Allure Results
         if: always()

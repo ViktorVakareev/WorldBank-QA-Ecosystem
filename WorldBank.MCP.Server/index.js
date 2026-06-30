@@ -6,7 +6,7 @@ import fs from "fs/promises";
 import path from "path";
 
 // 🎯 CONFIGURATION: Point this to where your local TestResults folder lives!
-const TEST_RESULTS_DIR = "C:\\actions-runner\\_work\\WorldBank-Core-Automation-Playwrite\\WorldBank-Core-Automation-Playwrite\\TestResults";
+const TEST_RESULTS_DIR = "C:\\Projects\\WorldBank-QA-Ecosystem\\TestResults";
 
 // Initialize GitHub Client using the token we will pass from Claude
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
