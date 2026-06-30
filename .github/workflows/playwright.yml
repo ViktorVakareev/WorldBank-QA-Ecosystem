@@ -1,12 +1,16 @@
 name: E2E Quality Gate
 
-# 🚀 1. TRIGGERS: Run on Pull Requests to main, or manually via a button
 on:
+  # 1. Runs automatically whenever code is pushed directly to the main branch
   push:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
+    
+  # 2. Runs automatically when a Pull Request is opened against the main branch (Shift-Left)
   pull_request:
-    branches: [ "main" ]
-  workflow_dispatch: 
+    branches: [ "main", "master" ]
+    
+  # 3. Keeps the manual button for ad-hoc runs and debugging
+  workflow_dispatch:
 
 jobs:
   # 🪟 JOB 1: Execute the tests on your local Windows machine (Handles your local Docker ReportPortal)
@@ -29,7 +33,7 @@ jobs:
           dotnet build WorldBank.Framework/src/Automation.Framework/Automation.Framework.csproj --configuration Release
 
       - name: 🌐 Install Playwright Browsers & OS Dependencies
-        run: pwsh src/Automation.Framework/bin/Release/net9.0/playwright.ps1 install --with-deps
+        run: pwsh WorldBank.Framework/src/Automation.Framework/bin/Release/net9.0/playwright.ps1 install --with-deps
 
       - name: 🧹 Purge Zombie Processes
         shell: pwsh
